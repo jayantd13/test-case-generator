@@ -1,0 +1,140 @@
+# Security files and sensitive data
+.env
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+*.p12
+*.pfx
+
+# API Keys and secrets
+*api_key*
+*secret*
+*password*
+*token*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with sensitive data
+config.ini
+settings.ini
+credentials.json
+secrets.json
+
+# AWS and cloud credentials
+.aws/
+*credentials*
+*config*
+
+# Personal data and test files
+personal_*
+test_data/
+sample_data/
+*.personal.*
+
+# Logs that might contain sensitive info
+*.log
+logs/
+debug.log
+error.log
+
+# Backup files that might contain sensitive data
+*.backup
+*.bak
+*.orig
+
+# IDE and editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Output files
+output/
+generated_files/
+*.xlsx
+*.xls
+*.csv
+*_testcases.*
+*_output.*
+
+# Generated test cases (keep folder, ignore files)
+testcases/*.xlsx
+testcases/*.xls
+testcases/*.csv
+!testcases/.gitkeep
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Docker
+.dockerignore
+
+# Local development
+local_*
+dev_*
+development_*

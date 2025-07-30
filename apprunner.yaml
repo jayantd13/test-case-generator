@@ -1,0 +1,28 @@
+version: 1.0
+runtime: python3
+build:
+  commands:
+    build:
+      - echo "Installing Python dependencies..."
+      - pip install -r requirements.txt
+run:
+  runtime-version: 3.11
+  command: streamlit run streamlit_app.py --server.port=8080 --server.address=0.0.0.0 --server.headless=true
+  network:
+    port: 8080
+    env: PORT
+  env:
+    - name: DEFAULT_AI_PROVIDER
+      value: "groq"
+    - name: DEFAULT_MODEL
+      value: "llama3-8b-8192"
+    - name: DEFAULT_TEST_TYPE
+      value: "Functional"
+    - name: DEFAULT_COMPONENT
+      value: "Web Application"
+    - name: DEFAULT_RELEASE
+      value: "1.0"
+    - name: DEFAULT_TEST_STATUS
+      value: "Draft"
+    - name: DEFAULT_AUTOMATION_STATUS
+      value: "Not Automated"
