@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Manual Test Case Generator for Bulk Upload Leads Feature
+Manual Test Case Generator for Bulk Upload data Feature
 Creates comprehensive test cases based on your specific requirements
 """
 
@@ -8,24 +8,24 @@ import pandas as pd
 from datetime import datetime
 
 def generate_bulk_upload_test_cases():
-    """Generate test cases for bulk upload leads feature"""
+    """Generate test cases for bulk upload data feature"""
     
-    print("🧪 Generating Test Cases for Bulk Upload Leads")
+    print("🧪 Generating Test Cases for Bulk Upload data")
     print("=" * 60)
     
     # Your specific acceptance criteria
     acceptance_criteria = """
-    Bulk Upload leads page should show list of files uploaded
-    Bulk upload leads should generate leads when spreadsheet is uploaded
-    Bulk upload leads list page should have below columns:
+    Bulk Upload data page should show list of files uploaded
+    Bulk upload data should generate data when spreadsheet is uploaded
+    Bulk upload data list page should have below columns:
     - Bulk upload file name, bulk upload identifier, Success count, Failed count, Error, created date in EST, Created by
     User should be able to download uploaded spreadsheet by clicking on file name
-    Column names in the bulk upload lead spreadsheet should be case insensitive, meaning leads should be created despite column name case
+    Column names in the bulk upload lead spreadsheet should be case insensitive, meaning data should be created despite column name case
     
     Navigation Steps:
-    - Login to Marketplace admin 
+    - Login to admin tool 
     - Navigate to Forms
-    - Click on Bulk upload leads
+    - Click on Bulk upload data
     - Upload spreadsheet
     """
     
@@ -33,21 +33,21 @@ def generate_bulk_upload_test_cases():
     test_cases = [
         {
             'Test Key': 'BULK-001-TC-001',
-            'Title': 'Verify navigation to bulk upload leads page and display uploaded files list',
-            'Preconditions': 'User has valid admin credentials for Marketplace admin',
+            'Title': 'Verify navigation to bulk upload data page and display uploaded files list',
+            'Preconditions': 'User has valid admin credentials for  admin tool',
             'Priority': 'High',
-            'Test Steps': '''1. Open browser and navigate to Marketplace admin login page
+            'Test Steps': '''1. Open browser and navigate to admin tool login page
 2. Enter valid admin username and password
 3. Click on Login button to access admin dashboard
 4. Locate and click on "Forms" section in the main navigation menu
-5. Click on "Bulk upload leads" option from the Forms submenu
-6. Verify bulk upload leads page loads successfully
+5. Click on "Bulk upload" option from the Forms submenu
+6. Verify bulk upload data page loads successfully
 7. Check if the page displays a list/table of previously uploaded files
 8. Verify all required columns are present in the list''',
             'Data for Steps': 'Valid admin credentials (username: admin@test.com, password: Test123)',
             'Expected Results': '''- Login is successful and admin dashboard is displayed
 - Forms section is accessible and clickable
-- Bulk upload leads page loads without any errors
+- Bulk upload data page loads without any errors
 - Page displays a table/list with the following columns:
   * Bulk upload file name
   * Bulk upload identifier
@@ -69,17 +69,17 @@ def generate_bulk_upload_test_cases():
         {
             'Test Key': 'BULK-001-TC-002',
             'Title': 'Verify successful lead generation from valid Excel spreadsheet upload',
-            'Preconditions': 'User is on bulk upload leads page, valid Excel file with lead data is available',
+            'Preconditions': 'User is on bulk upload data page, valid Excel file with lead data is available',
             'Priority': 'High',
-            'Test Steps': '''1. Login to Marketplace admin using valid credentials
-2. Navigate to Forms > Bulk upload leads page
+            'Test Steps': '''1. Login to admin tool using valid credentials
+2. Navigate to Forms > Bulk upload page
 3. Locate the file upload section/button on the page
 4. Click on "Choose File" or "Upload" button
-5. Select a valid Excel file (.xlsx) containing lead data with proper columns
+5. Select a valid Excel file (.xlsx) containing data with proper columns
 6. Click "Upload" or "Submit" button to start the upload process
 7. Wait for the upload and processing to complete
 8. Verify processing status/progress is displayed during upload
-9. Check that leads are successfully created in the system
+9. Check that data are successfully created in the system
 10. Verify the uploaded file appears in the files list with correct statistics''',
             'Data for Steps': '''Valid Excel file with columns: Name, Email, Phone, Company, Address
 Sample data:
@@ -89,8 +89,8 @@ Sample data:
 - Valid Excel file is accepted for upload
 - Upload progress indicator is displayed during processing
 - File processing completes without errors
-- Leads are successfully created in the system database
-- Success count in the list reflects the number of leads created (e.g., 2)
+- data are successfully created in the system database
+- Success count in the list reflects the number of data created (e.g., 2)
 - Failed count shows 0 for successful upload
 - File entry appears in the list with:
   * Correct file name
@@ -105,7 +105,7 @@ Sample data:
             'Component': 'Bulk Upload',
             'Release': '2.0',
             'Test Case Status': 'Draft',
-            'Tags': 'file-upload, lead-generation, data-processing, excel',
+            'Tags': 'file-upload, data-generation, data-processing, excel',
             'Automation Status': 'To Be Automated',
             'Automation Key': ''
         },
@@ -114,14 +114,14 @@ Sample data:
             'Title': 'Verify case insensitive column name processing in uploaded spreadsheet',
             'Preconditions': 'User has access to bulk upload page, test file with mixed case headers available',
             'Priority': 'Medium',
-            'Test Steps': '''1. Login to Marketplace admin
-2. Navigate to Forms > Bulk upload leads
+            'Test Steps': '''1. Login to admin tool
+2. Navigate to Forms > Bulk upload data
 3. Prepare or select a test Excel file with mixed case column headers
 4. Ensure headers include variations like: "NAME", "email", "Phone", "COMPANY", "address"
 5. Upload the test file using the upload functionality
 6. Monitor the processing of the file
 7. Wait for processing to complete
-8. Verify that leads are created successfully despite mixed case headers
+8. Verify that data are created successfully despite mixed case headers
 9. Check that data is correctly mapped to the appropriate fields
 10. Verify success count reflects all valid records processed''',
             'Data for Steps': '''Excel file with mixed case headers:
@@ -130,7 +130,7 @@ Sample data:
 - Bob Johnson, bob@test.com, 555-1234, Tech Corp, 789 Pine St
 - Alice Brown, alice@test.com, 555-5678, Innovate LLC, 321 Elm St''',
             'Expected Results': '''- System accepts and processes file with mixed case column headers
-- All leads are created successfully regardless of header case
+- All data are created successfully regardless of header case
 - Data is correctly mapped from "NAME" to name field, "email" to email field, etc.
 - No errors related to column case sensitivity
 - Success count shows all records processed (e.g., 2)
@@ -151,8 +151,8 @@ Sample data:
             'Title': 'Verify download functionality for uploaded spreadsheet files',
             'Preconditions': 'At least one file has been previously uploaded and appears in the files list',
             'Priority': 'Medium',
-            'Test Steps': '''1. Login to Marketplace admin
-2. Navigate to Forms > Bulk upload leads
+            'Test Steps': '''1. Login to admin tool
+2. Navigate to Forms > Bulk upload data
 3. Verify that uploaded files list is displayed
 4. Locate a file entry in the list with a clickable file name
 5. Click on the file name link/button in the "Bulk upload file name" column
@@ -183,10 +183,10 @@ Sample data:
         {
             'Test Key': 'BULK-001-TC-005',
             'Title': 'Verify error handling for invalid file format upload',
-            'Preconditions': 'User is on bulk upload leads page, invalid file formats are available for testing',
+            'Preconditions': 'User is on bulk upload data page, invalid file formats are available for testing',
             'Priority': 'Medium',
-            'Test Steps': '''1. Login to Marketplace admin
-2. Navigate to Forms > Bulk upload leads
+            'Test Steps': '''1. Login to admin tool
+2. Navigate to Forms > Bulk upload data
 3. Attempt to upload a file with invalid format (e.g., .txt, .pdf, .jpg)
 4. Click upload button
 5. Observe system response and error handling
@@ -221,10 +221,10 @@ Sample data:
         {
             'Test Key': 'BULK-001-TC-006',
             'Title': 'Verify date display format in EST timezone for created date column',
-            'Preconditions': 'Files have been uploaded from different time zones, user is on bulk upload leads page',
+            'Preconditions': 'Files have been uploaded from different time zones, user is on bulk upload data page',
             'Priority': 'Low',
-            'Test Steps': '''1. Login to Marketplace admin
-2. Navigate to Forms > Bulk upload leads
+            'Test Steps': '''1. Login to admin tool
+2. Navigate to Forms > Bulk upload data
 3. Examine the "Created date in EST" column in the uploaded files list
 4. Verify date format is consistent and in EST timezone
 5. If possible, upload a file during different time of day
@@ -292,7 +292,7 @@ def save_test_cases_to_excel(test_cases, filename):
 def main():
     """Main function to generate and save test cases"""
     
-    print("🧪 Bulk Upload Leads - Test Case Generator")
+    print("🧪 Bulk Upload data - Test Case Generator")
     print("=" * 60)
     print("\n📋 Based on your acceptance criteria:")
     print("- Bulk upload page functionality")
